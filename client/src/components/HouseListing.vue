@@ -2,13 +2,13 @@
 import { House } from '@/models/House.js';
 
 defineProps({
-  houseProp: { type: House, required: true }
+  house: { type: House, required: true }
 })
 </script>
 
 
 <template>
-  <b>{{ houseProp.bedrooms }}</b>
+  <b>{{ house.bedrooms }}</b>
 </template>
 
 
