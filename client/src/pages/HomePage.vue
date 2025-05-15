@@ -12,7 +12,6 @@
           <div class="fs-1 d-flex gap-4 justify-content-center">
             <span class="mdi mdi-car-convertible"></span>
             <span class="mdi mdi-home-variant"></span>
-            <span class="mdi mdi-briefcase"></span>
           </div>
           <h1 class="display-1">
             Gregslist
