@@ -1,10 +1,14 @@
 <script setup>
+import { House } from '@/models/House.js';
 
+defineProps({
+  houseProp: { type: House, required: true }
+})
 </script>
 
 
 <template>
-  House listing
+  <b>{{ houseProp.bedrooms }}</b>
 </template>
 
 

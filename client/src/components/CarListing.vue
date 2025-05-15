@@ -1,10 +1,14 @@
 <script setup>
+import { Car } from '@/models/Car.js';
 
+defineProps({
+  carProp: { type: Car, required: true }
+})
 </script>
 
 
 <template>
-  Car listing
+  <b>{{ carProp.make }}</b>
 </template>
 
 
