@@ -1,6 +1,7 @@
-using gregslist.Services;
+using gregslist_dotnet.Models;
+using gregslist_dotnet.Services;
 
-namespace gregslist.Controllers;
+namespace gregslist_dotnet.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

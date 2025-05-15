@@ -1,6 +1,6 @@
-using gregslist.Repositories;
 
-namespace gregslist.Services;
+
+namespace gregslist_dotnet.Services;
 
 public class HousesService
 {
