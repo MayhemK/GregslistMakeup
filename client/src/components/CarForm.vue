@@ -89,17 +89,11 @@ async function createCar() {
     <div class="form-floating mb-3">
       <select v-model="editableCarData.engineType" type="text" class="form-select" id="carEngine">
         <option value="">--Engine Type Select--</option>
-        <option value="unknown">Unknown</option>
-        <option value="2 stroke">2 Stroke</option>
-        <option value="4 cylinder">4 cylinder</option>
-        <option value="v6">v6</option>
-        <option value="v8">v8</option>
-        <option value="v10">v10</option>
-        <option value="v12">v12</option>
         <option value="small">small</option>
         <option value="medium">medium</option>
         <option value="large">large</option>
-        <option value="chuncko">chuncko</option>
+        <option value="super-size">super-size</option>
+        <option value="battery">battery</option>
       </select>
       <label for="carEngine">Engine Type</label>
     </div>

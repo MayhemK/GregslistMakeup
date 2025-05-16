@@ -109,3 +109,79 @@ FROM houses
 UPDATE cars SET make = "mazda", model = "miata" WHERE id = 5 LIMIT 1;
 
 SELECT * FROM houses;
+
+-- Add Car 1: Honda Civic
+-- Add House 1
+INSERT INTO
+    houses (
+        bedrooms,
+        bathrooms,
+        levels,
+        year,
+        price,
+        description,
+        img_url,
+        creator_id,
+        color
+    )
+VALUES (
+        3,
+        2.5,
+        2,
+        2005,
+        350000.00,
+        'Spacious family home in a quiet neighborhood.',
+        'https://example.com/images/house1.jpg',
+        '67e32349d1583cd79fcfd0a4',
+        '#f0f0f0'
+    );
+
+-- Add House 2
+INSERT INTO
+    houses (
+        bedrooms,
+        bathrooms,
+        levels,
+        year,
+        price,
+        description,
+        img_url,
+        creator_id,
+        color
+    )
+VALUES (
+        4,
+        3.0,
+        1,
+        1998,
+        420000.00,
+        'Ranch style house with a large backyard.',
+        'https://example.com/images/house2.jpg',
+        '67e32349d1583cd79fcfd0a4',
+        '#a0522d'
+    );
+
+-- Add House 3
+INSERT INTO
+    houses (
+        bedrooms,
+        bathrooms,
+        levels,
+        year,
+        price,
+        description,
+        img_url,
+        creator_id,
+        color
+    )
+VALUES (
+        2,
+        1.0,
+        1,
+        2015,
+        280000.00,
+        'Cozy starter home near downtown.',
+        'https://example.com/images/house3.jpg',
+        '67e32349d1583cd79fcfd0a4',
+        '#b0c4de'
+    );
