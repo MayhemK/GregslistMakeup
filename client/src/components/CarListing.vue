@@ -43,6 +43,7 @@ async function deleteCar(carId) {
           <p v-if="carProp.description">{{ carProp.description }}</p>
           <p v-else><i>Description Unavailable</i></p>
           <p>Engine: {{ carProp.engineType }}</p>
+          <p>Clean Title: {{ carProp.hasCleanTitle ? '✔️' : '❌' }}</p>
         </div>
         <div class="d-flex justify-content-between align-items-center">
           <div>
