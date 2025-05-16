@@ -7,6 +7,7 @@ import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
 
 const houses = computed(() => AppState.houses)
+const account = computed(() => AppState.account)
 
 onMounted(() => {
   getHouses()
@@ -34,7 +35,7 @@ async function getHouses() {
       </div>
     </div>
   </section>
-  <section class="container">
+  <section v-if="account" class="container">
     <div class="row">
       <div class="col-md-8">
         <HouseForm />
@@ -45,6 +46,9 @@ async function getHouses() {
           alt="" class="w-100">
       </div>
     </div>
+  </section>
+  <section v-else>
+    <h2>Please Login to Post!</h2>
   </section>
   <section class="container">
     <div class="row">
