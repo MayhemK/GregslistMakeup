@@ -13,11 +13,11 @@ defineProps({
 
 async function deleteHouse(houseId) {
   try {
-    const confirmed = await Pop.confirm('Are you sure you want to delete this house?', 'Yes', 'No')
+    const confirmed = await Pop.confirm('Are you sure you want to delete this house?', 'Action is permanent', 'Yes', 'No')
     if (!confirmed) {
       return
     }
-    await housesService.deleteCar(houseId)
+    await housesService.deleteHouse(houseId)
   }
   catch (error) {
     Pop.error(error);
@@ -47,7 +47,7 @@ async function deleteHouse(houseId) {
         </div>
         <div class="d-flex justify-content-between align-items-center">
           <div>
-            <button @click="deleteHouse()" v-if="account && houseProp.creator.id === account.id"
+            <button @click="deleteHouse(houseProp.id)" v-if="account && houseProp.creator.id === account.id"
               class="btn btn-danger">Delete</button>
           </div>
 

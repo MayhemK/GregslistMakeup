@@ -4,8 +4,8 @@ import { AppState } from "@/AppState.js"
 import { House } from "@/models/House.js"
 
 class HousesService {
-  async deleteCar(houseId) {
-    const res = await api.delete(`api/cars/${houseId}`)
+  async deleteHouse(houseId) {
+    const res = await api.delete(`api/houses/${houseId}`)
     logger.log('House Deleted', res.data)
     const houses = AppState.houses
     const houseIndex = houses.findIndex(house => house.id == houseId)

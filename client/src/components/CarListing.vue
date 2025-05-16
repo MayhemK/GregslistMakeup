@@ -13,7 +13,7 @@ defineProps({
 
 async function deleteCar(carId) {
   try {
-    const confirmed = await Pop.confirm('Are you sure you want to delete this car?', 'Yes', 'No')
+    const confirmed = await Pop.confirm('Are you sure you want to delete this car?', 'Action is permanent', 'Yes', 'No')
     if (!confirmed) {
       return
     }
@@ -46,7 +46,7 @@ async function deleteCar(carId) {
         </div>
         <div class="d-flex justify-content-between align-items-center">
           <div>
-            <button @click="deleteCar()" v-if="account && carProp.creator.id === account.id"
+            <button @click="deleteCar(carProp.id)" v-if="account && carProp.creator.id === account.id"
               class="btn btn-danger">Delete</button>
           </div>
           <div class="d-flex justify-content-end align-items-center gap-3">
