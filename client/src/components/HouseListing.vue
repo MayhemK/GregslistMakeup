@@ -2,13 +2,21 @@
 import { House } from '@/models/House.js';
 
 defineProps({
-  house: { type: House, required: true }
+  houseProp: { type: House, required: true }
 })
 </script>
 
 
 <template>
-  <b>{{ house.bedrooms }}</b>
+  <div class="row">
+    <div class="col-md-4">
+      <img :src="houseProp.imgUrl" :alt="`A picture of this ${houseProp.year} ${houseProp.bedrooms} bedroom house`"
+        class="w-100">
+    </div>
+    <div class="col-md-8">
+
+    </div>
+  </div>
 </template>
 
 
