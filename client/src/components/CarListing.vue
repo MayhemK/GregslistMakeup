@@ -49,6 +49,7 @@ async function deleteCar(carId) {
           <div>
             <button @click="deleteCar(carProp.id)" v-if="account && carProp.creator.id === account.id"
               class="btn btn-danger">Delete</button>
+            <button v-if="account && carProp.creator.id === account.id" class="btn btn-secondary">Update</button>
           </div>
           <div class="d-flex justify-content-end align-items-center gap-3">
             <p class="mb-0">{{ carProp.creator.name }}</p>

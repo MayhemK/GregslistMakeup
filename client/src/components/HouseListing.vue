@@ -4,6 +4,7 @@ import { House } from '@/models/House.js';
 import { housesService } from '@/services/HousesService.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed } from 'vue';
+import UpdateHouseModal from './updateHouseModal.vue';
 
 const account = computed(() => AppState.account)
 
@@ -22,6 +23,9 @@ async function deleteHouse(houseId) {
   catch (error) {
     Pop.error(error);
   }
+}
+async function updateHouse(houseId) {
+
 }
 </script>
 
@@ -49,6 +53,8 @@ async function deleteHouse(houseId) {
           <div>
             <button @click="deleteHouse(houseProp.id)" v-if="account && houseProp.creator.id === account.id"
               class="btn btn-danger">Delete</button>
+            <button data-bs-toggle="modal" data-bs-target="#updateHouse"
+              v-if="account && houseProp.creator.id === account.id" class="btn btn-secondary">Update</button>
           </div>
 
           <div class="d-flex justify-content-end align-items-center gap-3">
@@ -59,6 +65,7 @@ async function deleteHouse(houseId) {
       </div>
     </div>
   </div>
+  <UpdateHouseModal />
 </template>
 
 
