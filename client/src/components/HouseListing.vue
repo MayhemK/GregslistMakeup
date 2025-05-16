@@ -14,7 +14,12 @@ defineProps({
         class="w-100">
     </div>
     <div class="col-md-8">
-
+      <div>
+        <p class="fs-3 fw-bold"><span>$</span>{{ houseProp.price }}</p>
+        <p class="fs-4">{{ houseProp.bedrooms }} bedroom(s) </p>
+        <p class="fs-4">{{ houseProp.bathrooms }} bathroom(s) </p>
+        <p class="fs-4">{{ houseProp.levels }} level(s) </p>
+      </div>
     </div>
   </div>
 </template>

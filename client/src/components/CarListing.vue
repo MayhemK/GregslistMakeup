@@ -1,9 +1,5 @@
 <script setup>
-import { AppState } from '@/AppState.js';
 import { Car } from '@/models/Car.js';
-import { computed } from 'vue';
-
-const cars = computed(() => AppState.cars)
 
 defineProps({
   carProp: { type: Car, required: true }
