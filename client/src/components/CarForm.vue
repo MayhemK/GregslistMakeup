@@ -13,7 +13,7 @@ const editableCarData = ref({
   mileage: '',
   engineType: 'unknown',
   imgUrl: '',
-  hasCleanTitle: '',
+  hasCleanTitle: false,
   description: ''
 })
 
@@ -30,7 +30,7 @@ async function createCar() {
       mileage: '',
       engineType: 'unknown',
       imgUrl: '',
-      hasCleanTitle: '',
+      hasCleanTitle: false,
       description: ''
     }
   }
@@ -42,23 +42,23 @@ async function createCar() {
 
 
 <template>
-  <form>
+  <form @submit.prevent="createCar()">
     <div class="row mb-3">
       <div class="col">
         <div class="form-floating ">
-          <input type="number" class="form-control" id="carYear" placeholder="">
+          <input v-model="editableCarData.year" type="number" class="form-control" id="carYear" placeholder="">
           <label for="carYear">Year</label>
         </div>
       </div>
       <div class="col">
         <div class="form-floating ">
-          <input type="text" class="form-control" id="carMake" placeholder="">
+          <input v-model="editableCarData.make" type="text" class="form-control" id="carMake" placeholder="">
           <label for="carMake">Make</label>
         </div>
       </div>
       <div class="col">
         <div class="form-floating ">
-          <input type="text" class="form-control" id="carModel" placeholder="">
+          <input v-model="editableCarData.model" type="text" class="form-control" id="carModel" placeholder="">
           <label for="carModel">Model</label>
         </div>
       </div>
@@ -66,27 +66,28 @@ async function createCar() {
     <div class="row mb-3">
       <div class="col">
         <div class="form-floating ">
-          <input type="number" class="form-control" id="carPrice" placeholder="">
+          <input v-model="editableCarData.price" type="number" class="form-control" id="carPrice" placeholder="">
           <label for="carPrice">Price</label>
         </div>
       </div>
       <div class="col">
         <div class="form-floating ">
-          <input type="number" class="form-control" id="carMileage" placeholder="">
+          <input v-model="editableCarData.mileage" type="number" class="form-control" id="carMileage" placeholder="">
           <label for="carMileage">Mileage</label>
         </div>
       </div>
     </div>
     <div class="form-floating mb-3">
-      <textarea type="text" class="form-control" id="carDescription" placeholder=""></textarea>
+      <textarea v-model="editableCarData.description" type="text" class="form-control" id="carDescription"
+        placeholder=""></textarea>
       <label for="carDescription">Description</label>
     </div>
     <div class="form-floating mb-3">
-      <input type="url" class="form-control" id="carImgUrl" placeholder="">
+      <input v-model="editableCarData.imgUrl" type="url" class="form-control" id="carImgUrl" placeholder="">
       <label for="carImgUrl">Image URL</label>
     </div>
     <div class="form-floating mb-3">
-      <select type="text" class="form-select" id="carEngine">
+      <select v-model="editableCarData.engineType" type="text" class="form-select" id="carEngine">
         <option value="">--Engine Type Select--</option>
         <option value="unknown">Unknown</option>
         <option value="2 stroke">2 Stroke</option>
@@ -105,11 +106,11 @@ async function createCar() {
     <div class="d-flex align-items-center justify-content-between mb-3">
       <div class="d-flex align-items-center">
         <label for="carColor" class="me-2">Color:</label>
-        <input type="color" class="form-control form-control-sm" id="carColor"
+        <input v-model="editableCarData.color" type="color" class="form-control form-control-sm" id="carColor"
           style="width: 50px; height: 38px; padding: 0; border: none;">
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="cleanTitleCheck">
+        <input v-model="editableCarData.hasCleanTitle" class="form-check-input" type="checkbox" id="cleanTitleCheck">
         <label class="form-check-label" for="cleanTitleCheck">
           Clean Title?
         </label>

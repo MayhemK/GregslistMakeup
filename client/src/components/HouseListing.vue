@@ -21,7 +21,7 @@ defineProps({
               Bathroom(s)</b>
             <small>{{ houseProp.createdAt.toLocaleDateString() }}</small>
           </div>
-          <p class="fs-5">{{ houseProp.levels }} level(s) </p>
+          <i class="fs-5">{{ houseProp.levels }} Level(s) </i>
           <p class="fs-3 fw-bold"><span>$</span>{{ houseProp.price.toLocaleString() }}</p>
           <p v-if="houseProp.description" class="fs-4">{{ houseProp.description }}</p>
           <p v-else><i>Description Unavailable</i></p>

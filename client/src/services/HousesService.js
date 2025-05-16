@@ -4,8 +4,10 @@ import { AppState } from "@/AppState.js"
 import { House } from "@/models/House.js"
 
 class HousesService {
-  createHouse(houseData) {
-    throw new Error('Method not implemented.')
+  async createHouse(houseData) {
+    const res = await api.post('api/houses', houseData)
+    const house = new House(res.data)
+    AppState.houses.push(house)
   }
   async getHouses() {
     const res = await api.get('api/houses')

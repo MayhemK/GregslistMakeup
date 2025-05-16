@@ -51,13 +51,13 @@ public class HousesRepository
     string sql = @"
     INSERT INTO
     houses (bedrooms, bathrooms, levels, year, price, description, img_url, creator_id, color)
-    VALUES (@Bedrooms, @Bathrooms, @Levels, @Year, @Price, @Description, @ImgUrl, @CreatorId, @Color)
+    VALUES (@Bedrooms, @Bathrooms, @Levels, @Year, @Price, @Description, @ImgUrl, @CreatorId, @Color);
     
     SELECT
     houses.*,
     accounts.*
     FROM houses
-    INNER JOIN accounts on accounts.id - houses.creator_id
+    INNER JOIN accounts ON accounts.id = houses.creator_id
     WHERE houses.id = LAST_INSERT_ID();";
 
     House createdHouse = _db.Query(sql, (House house, Account account) =>

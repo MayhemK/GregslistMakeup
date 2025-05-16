@@ -66,6 +66,7 @@ public class CarsService
     car.ImgUrl = carUpdateData.ImgUrl ?? car.ImgUrl;
     // NOTE will only work if the bool property is nullable in your model
     car.HasCleanTitle = carUpdateData.HasCleanTitle ?? car.HasCleanTitle;
+    car.Description = carUpdateData.Description ?? car.Description;
 
     _carsRepository.UpdateCar(car);
 
