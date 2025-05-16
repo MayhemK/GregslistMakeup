@@ -48,7 +48,7 @@ async function getHouses() {
     </div>
   </section>
   <section v-else>
-    <h2>Please Login to Post!</h2>
+    <h2 class="text-center mb-5">Please Login to Post!</h2>
   </section>
   <section class="container">
     <div class="row">

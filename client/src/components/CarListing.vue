@@ -1,9 +1,28 @@
 <script setup>
+import { AppState } from '@/AppState.js';
 import { Car } from '@/models/Car.js';
+import { carsService } from '@/services/CarsService.js';
+import { Pop } from '@/utils/Pop.js';
+import { computed } from 'vue';
+
+const account = computed(() => AppState.account)
 
 defineProps({
   carProp: { type: Car, required: true }
 })
+
+async function deleteCar(carId) {
+  try {
+    const confirmed = await Pop.confirm('Are you sure you want to delete this car?', 'Yes', 'No')
+    if (!confirmed) {
+      return
+    }
+    await carsService.deleteCar(carId)
+  }
+  catch (error) {
+    Pop.error(error, 'Could not delete car!');
+  }
+}
 </script>
 
 
@@ -25,9 +44,15 @@ defineProps({
           <p v-else><i>Description Unavailable</i></p>
           <p>Engine: {{ carProp.engineType }}</p>
         </div>
-        <div class="d-flex justify-content-end align-items-center gap-3">
-          <p class="">{{ carProp.creator.name }}</p>
-          <img :src="carProp.creator.picture" :alt="`${carProp.creator.name} profile image`" class="creator-img">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <button @click="deleteCar()" v-if="account && carProp.creator.id === account.id"
+              class="btn btn-danger">Delete</button>
+          </div>
+          <div class="d-flex justify-content-end align-items-center gap-3">
+            <p class="mb-0">{{ carProp.creator.name }}</p>
+            <img :src="carProp.creator.picture" :alt="`${carProp.creator.name} profile image`" class="creator-img">
+          </div>
         </div>
       </div>
     </div>
