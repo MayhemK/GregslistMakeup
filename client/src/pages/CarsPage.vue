@@ -1,5 +1,6 @@
 <script setup>
 import { AppState } from '@/AppState.js';
+import CarForm from '@/components/CarForm.vue';
 import CarListing from '@/components/CarListing.vue';
 import { carsService } from '@/services/CarsService.js';
 import { Pop } from '@/utils/Pop.js';
@@ -26,10 +27,21 @@ async function getCars() {
   <section class="container">
     <div class="row">
       <div class="col-12 mt-3">
-        <div class="text-center">
+        <div class="text-center fs-2 fw-bold">
           Cars
         </div>
         <hr>
+      </div>
+    </div>
+  </section>
+  <section class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <CarForm />
+      </div>
+      <div class="col-md-4">
+        <img src="https://i.etsystatic.com/17211177/r/il/ba78ca/1554305857/il_794xN.1554305857_426y.jpg" alt=""
+          class="w-100">
       </div>
     </div>
   </section>
