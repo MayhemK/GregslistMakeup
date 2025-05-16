@@ -43,33 +43,47 @@ async function createCar() {
 
 <template>
   <form>
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="carMake">
-      <label for="carMake">Make</label>
+    <div class="row mb-3">
+      <div class="col">
+        <div class="form-floating ">
+          <input type="number" class="form-control" id="carYear" placeholder="">
+          <label for="carYear">Year</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating ">
+          <input type="text" class="form-control" id="carMake" placeholder="">
+          <label for="carMake">Make</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating ">
+          <input type="text" class="form-control" id="carModel" placeholder="">
+          <label for="carModel">Model</label>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <div class="form-floating ">
+          <input type="number" class="form-control" id="carPrice" placeholder="">
+          <label for="carPrice">Price</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating ">
+          <input type="number" class="form-control" id="carMileage" placeholder="">
+          <label for="carMileage">Mileage</label>
+        </div>
+      </div>
     </div>
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="carModel">
-      <label for="carModel">Model</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="number" class="form-control" id="carYear">
-      <label for="carYear">Year</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="number" class="form-control" id="carPrice">
-      <label for="carPrice">Price</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="number" class="form-control" id="carMileage">
-      <label for="carMileage">Mileage</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="url" class="form-control" id="carImgUrl">
-      <label for="carImgUrl">Image URL</label>
-    </div>
-    <div class="form-floating mb-3">
-      <textarea type="text" class="form-control" id="carDescription"></textarea>
+      <textarea type="text" class="form-control" id="carDescription" placeholder=""></textarea>
       <label for="carDescription">Description</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="url" class="form-control" id="carImgUrl" placeholder="">
+      <label for="carImgUrl">Image URL</label>
     </div>
     <div class="form-floating mb-3">
       <select type="text" class="form-select" id="carEngine">

@@ -14,4 +14,5 @@ public class House
   public string ImgUrl { get; set; }
   public string CreatorId { get; set; }
   public Account Creator { get; set; }
+  public string Color { get; set; }
 }

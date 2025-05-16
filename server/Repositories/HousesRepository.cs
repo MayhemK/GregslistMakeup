@@ -50,8 +50,8 @@ public class HousesRepository
   {
     string sql = @"
     INSERT INTO
-    houses (bedrooms, bathrooms, levels, year, price, description, img_url, creator_id)
-    VALUES (@Bedrooms, @Bathrooms, @Levels, @Year, @Price, @Description, @ImgUrl, @CreatorId)
+    houses (bedrooms, bathrooms, levels, year, price, description, img_url, creator_id, color)
+    VALUES (@Bedrooms, @Bathrooms, @Levels, @Year, @Price, @Description, @ImgUrl, @CreatorId, @Color)
     
     SELECT
     houses.*,

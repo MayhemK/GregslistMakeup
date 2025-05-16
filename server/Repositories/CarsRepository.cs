@@ -56,8 +56,8 @@ public class CarsRepository
   {
     string sql = @"
     INSERT INTO 
-    cars (make, model, year, price, color, mileage, engine_type, img_url, has_clean_title, creator_id)
-    VALUES (@Make, @Model, @Year, @Price, @Color, @Mileage, @EngineType, @ImgUrl, @HasCleanTitle, @CreatorId);
+    cars (make, model, year, price, color, mileage, engine_type, img_url, has_clean_title, creator_id, description)
+    VALUES (@Make, @Model, @Year, @Price, @Color, @Mileage, @EngineType, @ImgUrl, @HasCleanTitle, @CreatorId, @Description);
     
     SELECT
     cars.*,
