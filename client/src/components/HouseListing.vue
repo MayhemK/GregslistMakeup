@@ -5,6 +5,7 @@ import { housesService } from '@/services/HousesService.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed } from 'vue';
 import UpdateHouseModal from './updateHouseModal.vue';
+import { router } from '@/router.js';
 
 const account = computed(() => AppState.account)
 
@@ -12,21 +13,7 @@ defineProps({
   houseProp: { type: House, required: true }
 })
 
-async function deleteHouse(houseId) {
-  try {
-    const confirmed = await Pop.confirm('Are you sure you want to delete this house?', 'Action is permanent', 'Yes', 'No')
-    if (!confirmed) {
-      return
-    }
-    await housesService.deleteHouse(houseId)
-  }
-  catch (error) {
-    Pop.error(error);
-  }
-}
-async function updateHouse(houseId) {
 
-}
 </script>
 
 
@@ -51,11 +38,6 @@ async function updateHouse(houseId) {
             <p v-else><i>Description Unavailable</i></p>
           </div>
           <div class="d-flex justify-content-between align-items-center">
-            <div>
-              <button @click="deleteHouse(houseProp.id)" v-if="account && houseProp.creator.id === account.id"
-                class="btn btn-danger">Delete</button>
-            </div>
-
             <div class="d-flex justify-content-end align-items-center gap-3">
               <p class="mb-0">{{ houseProp.creator.name }}</p>
               <img :src="houseProp.creator.picture" :alt="`${houseProp.creator.name} profile image`"
@@ -88,7 +70,7 @@ p {
 .house-border {
   border-style: solid;
   border-width: thick;
-  border-color: gray;
+  border-color: v-bind('houseProp.color')
 }
 
 a {

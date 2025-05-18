@@ -2,6 +2,7 @@ import { logger } from "@/utils/Logger.js"
 import { api } from "./AxiosService.js"
 import { AppState } from "@/AppState.js"
 import { House } from "@/models/House.js"
+import { router } from "@/router.js"
 
 class HousesService {
   async getHouseById(houseId) {
@@ -21,6 +22,7 @@ class HousesService {
     const houses = AppState.houses
     const houseIndex = houses.findIndex(house => house.id == houseId)
     houses.splice(houseIndex, 1)
+    router.push({ name: 'Houses' })
   }
   async createHouse(houseData) {
     const res = await api.post('api/houses', houseData)

@@ -9,7 +9,6 @@ const house = computed(() => AppState.activeHouse);
 const account = computed(() => AppState.account);
 
 const route = useRoute();
-const router = useRouter();
 
 onMounted(() => {
   getHouseById();
@@ -54,21 +53,30 @@ async function getHouseById() {
 }
 
 async function updateHouse() {
-
   try {
     const houseId = route.params.houseId;
     const updateData = editableHouseData.value;
-
-
     await housesService.updateHouse(houseId, updateData);
     Pop.success('House updated successfully!');
-
   }
   catch (error) {
     Pop.error(error.message || 'Could not update house.');
-
   }
 }
+async function deleteHouse(houseId) {
+  try {
+    const confirmed = await Pop.confirm('Are you sure you want to delete this house?', 'Action is permanent', 'Yes', 'No')
+    if (!confirmed) {
+      return
+    }
+    await housesService.deleteHouse(houseId)
+
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
+
 </script>
 
 <template>
@@ -94,6 +102,10 @@ async function updateHouse() {
               <template v-else>
                 <span>Unspecified</span>
               </template>
+            </div>
+            <div class="d-flex justify-content-center mt-5">
+              <button @click="deleteHouse(house.id)" v-if="account && house.creator.id === account.id"
+                class="btn btn-danger">Delete</button>
             </div>
           </div>
 
