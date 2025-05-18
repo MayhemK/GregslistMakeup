@@ -42,6 +42,7 @@ async function setActiveHouse() {
   <section v-if="account" class="container">
     <div class="row">
       <div class="col-md-8">
+        <div class="h2 text-center mb-3">Post New Listing</div>
         <HouseForm />
       </div>
       <div class="col-md-4">

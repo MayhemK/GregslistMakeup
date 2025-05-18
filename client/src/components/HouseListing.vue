@@ -90,4 +90,9 @@ p {
   border-width: thick;
   border-color: gray;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
 </style>

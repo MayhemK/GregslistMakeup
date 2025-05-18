@@ -10,9 +10,10 @@ class HousesService {
     const house = new House(res.data)
     AppState.activeHouse = house
   }
-  async updateHouse(houseId) {
-    const res = await api.put(`api/houses/${houseId}`)
+  async updateHouse(houseId, updateData) {
+    const res = await api.put(`api/houses/${houseId}`, updateData)
     logger.log('House updated', res.data)
+    AppState.activeHouse = new House(res.data)
   }
   async deleteHouse(houseId) {
     const res = await api.delete(`api/houses/${houseId}`)

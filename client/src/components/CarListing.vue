@@ -85,4 +85,9 @@ img {
 p {
   text-transform: capitalize;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
 </style>

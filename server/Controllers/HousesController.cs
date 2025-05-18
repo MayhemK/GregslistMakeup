@@ -1,5 +1,6 @@
 using gregslist_dotnet.Models;
 using gregslist_dotnet.Services;
+using Microsoft.Extensions.Logging;
 
 namespace gregslist_dotnet.Controllers;
 
@@ -57,6 +58,7 @@ public class HousesController : ControllerBase
     catch (Exception exception)
     {
       return BadRequest(exception.Message);
+
     }
   }
 
