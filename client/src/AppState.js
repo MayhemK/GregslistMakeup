@@ -11,6 +11,8 @@ cars: [],
 /**@type {import('./models/House.js').House[]} */
 houses: [],
 /**@type {import('./models/House.js').House} */
-activeHouse: null
+activeHouse: null,
+/**@type {import('./models/Car.js').Car} */
+activeCar: null
 })
 

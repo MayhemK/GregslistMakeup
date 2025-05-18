@@ -22,9 +22,6 @@ async function getHouses() {
   }
 }
 
-async function setActiveHouse() {
-
-}
 </script>
 
 

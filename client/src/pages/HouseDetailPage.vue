@@ -6,6 +6,7 @@ import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const house = computed(() => AppState.activeHouse);
+const account = computed(() => AppState.account);
 
 const route = useRoute();
 const router = useRouter();
@@ -112,7 +113,8 @@ async function updateHouse() {
           <div class="col-12 text-center mb-3">
             <h2>Edit Listing</h2>
           </div>
-          <div class="col-md-8">
+
+          <div v-if="account && account.id === house.creator.id" class="col-md-8">
             <form @submit.prevent="updateHouse()">
               <div class="row mb-3">
                 <div class="col">
@@ -170,6 +172,9 @@ async function updateHouse() {
                   Save Changes </button>
               </div>
             </form>
+          </div>
+          <div v-else class="fs-5 text-center">
+            Please Login to edit listing
           </div>
         </div>
       </div>
