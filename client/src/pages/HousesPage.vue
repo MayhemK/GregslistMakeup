@@ -21,6 +21,10 @@ async function getHouses() {
     Pop.error(error);
   }
 }
+
+async function setActiveHouse() {
+
+}
 </script>
 
 

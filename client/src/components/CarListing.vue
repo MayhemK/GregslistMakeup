@@ -27,38 +27,40 @@ async function deleteCar(carId) {
 
 
 <template>
-  <div class="row shadow-lg mb-3 car-border">
-    <div class="col-md-6 px-0">
-      <img :src="carProp.imgUrl" :alt="`A picture of this ${carProp.year} ${carProp.make} ${carProp.model}`"
-        class="w-100">
-    </div>
-    <div class="col-md-6">
-      <div class="p-3 d-flex h-100 justify-content-between flex-column">
-        <div>
-          <div class="d-flex justify-content-between">
-            <p class="fs-3">{{ carProp.year }} {{ carProp.make }} {{ carProp.model }}</p>
-            <small>{{ carProp.createdAt.toLocaleDateString() }}</small>
-          </div>
-          <p class="fs-3">{{ '$' + carProp.price.toLocaleString() }}</p>
-          <p v-if="carProp.description">{{ carProp.description }}</p>
-          <p v-else><i>Description Unavailable</i></p>
-          <p>Engine: {{ carProp.engineType }}</p>
-          <p>Clean Title: {{ carProp.hasCleanTitle ? '✔️' : '❌' }}</p>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
+  <RouterLink :to="{ name: 'CarDetails', params: { carId: carProp.id } }">
+    <div class="row shadow-lg mb-3 car-border">
+      <div class="col-md-6 px-0">
+        <img :src="carProp.imgUrl" :alt="`A picture of this ${carProp.year} ${carProp.make} ${carProp.model}`"
+          class="w-100">
+      </div>
+      <div class="col-md-6">
+        <div class="p-3 d-flex h-100 justify-content-between flex-column">
           <div>
-            <button @click="deleteCar(carProp.id)" v-if="account && carProp.creator.id === account.id"
-              class="btn btn-danger">Delete</button>
-            <button v-if="account && carProp.creator.id === account.id" class="btn btn-secondary">Update</button>
+            <div class="d-flex justify-content-between">
+              <p class="fs-3">{{ carProp.year }} {{ carProp.make }} {{ carProp.model }}</p>
+              <small>{{ carProp.createdAt.toLocaleDateString() }}</small>
+            </div>
+            <p class="fs-3">{{ '$' + carProp.price.toLocaleString() }}</p>
+            <p v-if="carProp.description">{{ carProp.description }}</p>
+            <p v-else><i>Description Unavailable</i></p>
+            <p>Engine: {{ carProp.engineType }}</p>
+            <p>Clean Title: {{ carProp.hasCleanTitle ? '✔️' : '❌' }}</p>
           </div>
-          <div class="d-flex justify-content-end align-items-center gap-3">
-            <p class="mb-0">{{ carProp.creator.name }}</p>
-            <img :src="carProp.creator.picture" :alt="`${carProp.creator.name} profile image`" class="creator-img">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <button @click="deleteCar(carProp.id)" v-if="account && carProp.creator.id === account.id"
+                class="btn btn-danger">Delete</button>
+              <button v-if="account && carProp.creator.id === account.id" class="btn btn-secondary">Update</button>
+            </div>
+            <div class="d-flex justify-content-end align-items-center gap-3">
+              <p class="mb-0">{{ carProp.creator.name }}</p>
+              <img :src="carProp.creator.picture" :alt="`${carProp.creator.name} profile image`" class="creator-img">
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </RouterLink>
 </template>
 
 

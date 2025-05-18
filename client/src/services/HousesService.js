@@ -4,6 +4,16 @@ import { AppState } from "@/AppState.js"
 import { House } from "@/models/House.js"
 
 class HousesService {
+  async getHouseById(houseId) {
+    AppState.activeHouse = null
+    const res = await api.get(`api/houses/${houseId}`)
+    const house = new House(res.data)
+    AppState.activeHouse = house
+  }
+  async updateHouse(houseId) {
+    const res = await api.put(`api/houses/${houseId}`)
+    logger.log('House updated', res.data)
+  }
   async deleteHouse(houseId) {
     const res = await api.delete(`api/houses/${houseId}`)
     logger.log('House Deleted', res.data)
